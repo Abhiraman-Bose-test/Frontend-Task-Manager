@@ -5,6 +5,7 @@ function Navbar() {
 
   const name = localStorage.getItem("name");
   const email = localStorage.getItem("email");
+  const userId = localStorage.getItem("userId");
 
   const handleLogout = () => {
     localStorage.clear();
@@ -31,7 +32,10 @@ function Navbar() {
       </div>
 
       <div>
-        <span style={{ marginRight: "16px" }}>{name || email}</span>
+        <span style={{ marginRight: "16px" }}>
+          {name || email} {userId && `(User ID: ${userId})`}
+        </span>
+
         <button onClick={handleLogout}>Logout</button>
       </div>
     </nav>
